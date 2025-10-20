@@ -3,10 +3,14 @@ import pandas as pd
 def country_best_product(df, country) -> str:
     # Your code goes here
     if country in df["Country"].unique():
+
+        # Subsets the data set to the country
+        df_country =df[df["Country"]==country]
+
+        # Counts how many times each item was purchased in descending order
+        purchased_counts = df_country["Description"].value_counts(sort=True)
         
-    
-    
-        times_purchased = df.groupby("Country")["Description"].value_counts(sort = True)
-        purchased_most_times = times_purchased[0]
-        return purchased_most_times
+        return purchased_counts.index[0] 
+    else:
+        return None
         
