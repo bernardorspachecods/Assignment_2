@@ -20,14 +20,13 @@ def data_cleaner(df) -> pd.DataFrame:
     the fully cleaned DataFrame.
     
     """
-    
-    # Your code goes here
-    df = df.copy()
 
-    # apply the cleaning steps 
+    # Applies the cleaning steps
     clean = missing_values_cleaner(df)
     clean = quantity_handler(clean)
     clean = amount_spent_computer(clean)
     clean = date_handler(clean)
+
+    clean["CustomerID"] = clean["CustomerID"].astype(int)
 
     return clean
