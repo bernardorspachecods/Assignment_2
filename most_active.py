@@ -4,7 +4,8 @@ from typing import List
 def most_active(customers) -> List[str]:
     
     """
-    Identifies the customers who have been active for the longest period and returns their corresponding email addresses.
+    This function receives a Pandas DataFrame containing customer information as input.
+    It identifies the customers who have been active for the longest period and returns their corresponding email addresses.
     """
 
     # Selects the customers of the df corresponding to the maximum value of active years

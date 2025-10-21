@@ -3,8 +3,8 @@ import pandas as pd
 def go_sports(teams, managers) -> pd.DataFrame:
     
     """
-    Merges team stats with manager data, returning a DataFrame of team name, 
-    manager ID, year, wins (W), and losses (L), sorted chronologically.
+    This function receives two Pandas DataFrames as input.
+    It merges team stats with manager data, returning a DataFrame of team name, manager ID, year, wins, and losses.
     """
 
     # Creates copies of the df to avoid modifying the original dfs
@@ -21,10 +21,10 @@ def go_sports(teams, managers) -> pd.DataFrame:
     # Merges the 2 dfs including only teams with corresponding manager entry
     merged = teams.merge(managers, on = ["yearID", "teamID", "lgID"], how="inner")
     
-    # Selects the required columns with the required names
+    # Selects the required columns with the required names; we used the wins and losses data of the teams dataset
     teams_info = merged[["name", "managerID", "yearID", "W_x", "L_x"]]
     teams_info = teams_info.rename(columns={"W_x": "W", "L_x": "L"})
 
-    # Returns the df required sorted first by year and then by team name
-    return teams_info.sort_values(by=['yearID', 'name'], ascending=[True, True])
+    # Returns the df required 
+    return teams_info
    

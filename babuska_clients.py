@@ -3,7 +3,8 @@ import pandas as pd
 def babuska_clients(df, customers) -> float:
     
     """
-    Calculates the average age of customers who have purchased the  'HAND WARMER BABUSHKA DESIGN' product.
+    This function receives a retail transaction DataFrame and a customer info DataFrame as input.
+    It calculates and returns the average age of customers who have purchased the 'HAND WARMER BABUSHKA DESIGN' product.
     """
     
     # Prepares data for merge and ensures each customer is only counted once per product
@@ -13,4 +14,4 @@ def babuska_clients(df, customers) -> float:
     merged_babuska = merged[merged["Description"]=="HAND WARMER BABUSHKA DESIGN"]
 
     # Returns the average of the customers age
-    return merged_babuska["Age"].mean()
+    return float(merged_babuska["Age"].mean())

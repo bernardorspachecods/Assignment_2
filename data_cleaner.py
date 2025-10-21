@@ -21,6 +21,8 @@ def data_cleaner(df) -> pd.DataFrame:
     
     """
 
+    df = df.copy() 
+
     # Applies the cleaning steps
     clean = missing_values_cleaner(df)
     clean = quantity_handler(clean)
